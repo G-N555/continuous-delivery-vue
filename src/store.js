@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -22,7 +21,7 @@ export default new Vuex.Store({
             lat: location.latitude,
             lng: location.longitude,
           },
-          key: location.name,
+          key: location.id,
           defaultAnimation: 2,
         }));
         commit("setLocations", markers);

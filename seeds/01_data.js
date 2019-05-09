@@ -16,7 +16,6 @@ allData.map((obj) => {
   const addresses = obj.Addresses[0];
   Object.assign(locationList, addresses);
   allNeedData.push(locationList);
-  console.log(allNeedData);
 });
 
 // //create addressList

@@ -1,5 +1,6 @@
 const fs = require("fs");
 const db = require("../server/knex.js");
+console.log(db);
 
 (async () => {
   try {

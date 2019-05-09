@@ -3,9 +3,7 @@
     <form>
       <p>Search:
         <select name="example1">
-          <option value="CA">California</option>
-          <option value="sample1">sample1</option>
-          <option value="sample1">sample1</option>
+          <option v-for='state of statesArray' :key='state' :value="state">{{state}}</option>
         </select>
         <select name="example2">
           <option value="sample2">sample2</option>
@@ -44,30 +42,34 @@
       <input type="checkbox" name="q1" value="2"> all other types included here
     </p>
     </form>
+    <h1>{{locationInfo}}</h1>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "FilterForm",
 
-  // props: {
-  //   msg: String,
-  // },
-
   data: () => ({
-    address: [],
+    locationInfo: [],
+    statesArray: [],
   }),
 
-  created: function() {},
-  // created: function(){
-
-  //   // const locations = JSON.parse(fs.readFile("../../data/locations.json"));
-  //   // locations.then((result) => {
-  //   //   allData.push(result);
-  //   //   console.log(allData);
-  //   // )}
-  // }
+  created: function() {
+    const locations = axios.get("/api/locations");
+    locations.then((locate) => {
+      locate.data.map((obj) => {
+        this.statesArray.push(obj.State);
+        this.statesArray = this.statesArray.filter(function(el) {
+          return el !== null;
+        });
+      });
+      this.statesArray = this.statesArray.filter(
+        (v, i) => this.statesArray.indexOf(v) === i
+      );
+    });
+  },
 };
 </script>
 
