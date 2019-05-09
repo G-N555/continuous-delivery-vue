@@ -42,7 +42,6 @@
       <input type="checkbox" name="q1" value="2"> all other types included here
     </p>
     </form>
-    <h1>{{locationInfo}}</h1>
   </div>
 </template>
 
