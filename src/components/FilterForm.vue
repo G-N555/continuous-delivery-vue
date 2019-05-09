@@ -3,7 +3,9 @@
     <form>
       <p>Search:
         <select name="example1">
-          <option value="sample1">samle1</option>
+          <option value="CA">California</option>
+          <option value="sample1">sample1</option>
+          <option value="sample1">sample1</option>
         </select>
         <select name="example2">
           <option value="sample2">sample2</option>
@@ -15,31 +17,31 @@
     </form>
     <form>
     <p>Truck Service :
-      <input type="checkbox" name="q1" value="1"> check1
-      <input type="checkbox" name="q1" value="2"> check2
+      <input type="checkbox" name="q1" value="1"> Oil change
+      <input type="checkbox" name="q1" value="2"> Light Mechanical
       <br>
-      <input type="checkbox" name="q1" value="3"> check3
-      <input type="checkbox" name="q1" value="4"> check4
+      <input type="checkbox" name="q1" value="3"> TirePass
+      <input type="checkbox" name="q1" value="4"> Truck Tire Care
     </p>
     </form>
     <form>
-    <p>Truck Service :
-      <input type="checkbox" name="q1" value="1"> check1
-      <input type="checkbox" name="q1" value="2"> check2
+    <p>Type :
+      <input type="checkbox" name="q1" value="1"> Travel Stop
+      <input type="checkbox" name="q1" value="2"> Country Store
     </p>
     </form>
     <form>
     <p>Amenities :
-      <input type="checkbox" name="q1" value="1"> check1
-      <input type="checkbox" name="q1" value="2"> check2
-      <input type="checkbox" name="q1" value="2"> check2
+      <input type="checkbox" name="q1" value="1"> ATM
+      <input type="checkbox" name="q1" value="2"> Wifi
+      <input type="checkbox" name="q1" value="2"> all other types included here
     </p>
     </form>
     <form>
     <p>Restaurants :
-      <input type="checkbox" name="q1" value="1"> check1
-      <input type="checkbox" name="q1" value="2"> check2
-      <input type="checkbox" name="q1" value="2"> check2
+      <input type="checkbox" name="q1" value="1"> Arby's
+      <input type="checkbox" name="q1" value="2"> Wendy's
+      <input type="checkbox" name="q1" value="2"> all other types included here
     </p>
     </form>
   </div>
@@ -48,9 +50,24 @@
 <script>
 export default {
   name: "FilterForm",
-  props: {
-    msg: String,
-  },
+
+  // props: {
+  //   msg: String,
+  // },
+
+  data: () => ({
+    address: [],
+  }),
+
+  created: function() {},
+  // created: function(){
+
+  //   // const locations = JSON.parse(fs.readFile("../../data/locations.json"));
+  //   // locations.then((result) => {
+  //   //   allData.push(result);
+  //   //   console.log(allData);
+  //   // )}
+  // }
 };
 </script>
 

@@ -19,6 +19,7 @@ app.get("/api/locations", async (req, res) => {
   try {
     const locations = await db.select().table("locations");
     res.json(locations);
+    console.log(locations);
   } catch (err) {
     console.error("Error loading locations!", err);
     res.sendStatus(500);
