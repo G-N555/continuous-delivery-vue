@@ -9,7 +9,7 @@
           <option v-for='city of cityArray' :key='city' :value="city">{{city}}</option>
         </select>
         <select name="example3">
-          <option v-for='zip of zipArray' :key='zip' :value="zip">{{zip}}</option>          
+          <option v-for='zip of zipArray' :key='zip' :value="zip">{{zip}}</option>        
         </select>
      </p>   
     </form>
@@ -62,9 +62,6 @@ export default {
     locations.then((locate) => {
       locate.data.map((obj) => {
         this.locateInfo.push(obj);
-        // this.locateInfo = this.locateInfo.filter(function(el) {
-        //   return el !== null;
-        // })
       });
       //create statesArray
       this.locateInfo.map((locate) => {
