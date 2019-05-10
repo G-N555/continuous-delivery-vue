@@ -88,7 +88,6 @@ export default {
         (v, i) => this.zipArray.indexOf(v) === i
       );
     });
-    console.log(this.zipArray);
   },
 };
 </script>
