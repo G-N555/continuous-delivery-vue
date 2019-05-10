@@ -6,10 +6,10 @@
           <option v-for='state of statesArray' :key='state' :value="state">{{state}}</option>
         </select>
         <select name="example2">
-          <option value="sample2">sample2</option>
+          <option v-for='city of cityArray' :key='city' :value="city">{{city}}</option>
         </select>
         <select name="example3">
-          <option value="sample3">sample3</option>
+          <option v-for='zip of zipArray' :key='zip' :value="zip">{{zip}}</option>          
         </select>
      </p>   
     </form>
@@ -51,15 +51,24 @@ export default {
   name: "FilterForm",
 
   data: () => ({
-    locationInfo: [],
+    locateInfo: [],
     statesArray: [],
+    cityArray: [],
+    zipArray: [],
   }),
 
   created: function() {
     const locations = axios.get("/api/locations");
     locations.then((locate) => {
       locate.data.map((obj) => {
-        this.statesArray.push(obj.State);
+        this.locateInfo.push(obj);
+        // this.locateInfo = this.locateInfo.filter(function(el) {
+        //   return el !== null;
+        // })
+      });
+      //create statesArray
+      this.locateInfo.map((locate) => {
+        this.statesArray.push(locate.State);
         this.statesArray = this.statesArray.filter(function(el) {
           return el !== null;
         });
@@ -67,7 +76,22 @@ export default {
       this.statesArray = this.statesArray.filter(
         (v, i) => this.statesArray.indexOf(v) === i
       );
+      //create cityArray
+      this.locateInfo.map((locate) => {
+        this.cityArray.push(locate.City);
+      });
+      this.cityArray = this.cityArray.filter(
+        (v, i) => this.cityArray.indexOf(v) === i
+      );
+      //create ZIP array
+      this.locateInfo.map((locate) => {
+        this.zipArray.push(locate.Zip);
+      });
+      this.zipArray = this.zipArray.filter(
+        (v, i) => this.zipArray.indexOf(v) === i
+      );
     });
+    console.log(this.zipArray);
   },
 };
 </script>
