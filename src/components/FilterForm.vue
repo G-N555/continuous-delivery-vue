@@ -1,6 +1,6 @@
 <template>
   <div class="table">
-    <form>
+    <form @submit="comMutation">
       <p>Search:
         <select name="example1">
           <option v-for='state of statesArray' :key='state' :value="state">{{state}}</option>
